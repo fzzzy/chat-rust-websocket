@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head><title>websocket</title></head>
+  <body>
+<h1>Hello</h1>
+<script>
+const sock = new WebSocket('ws://localhost:2794', 'rust-websocket');
+sock.onmessage = function(m) {
+  console.log('ONMESSAGE', m, m.data);
+};
+sock.onopen = function() {
+  sock.send("hello");
+};
+</script>
+  </body>
+</html>
