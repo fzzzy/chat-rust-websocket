@@ -1,3 +1,4 @@
+
 extern crate websocket;
 
 use std::sync::{Arc, Mutex};
@@ -6,10 +7,9 @@ use std::thread;
 
 use websocket::OwnedMessage;
 use websocket::sync::Server;
-use websocket::message::Type;
 
 fn main() {
-	let server = Server::bind("0.0.0.0:2794").unwrap();
+	let server = Server::bind("0.0.0.0:12223").unwrap();
 
 	let (dispatcher_tx, dispatcher_rx) = mpsc::channel::<String>();
 	let client_senders: Arc<Mutex<Vec<mpsc::Sender<String>>>> = Arc::new(Mutex::new(vec![]));
